@@ -1,0 +1,9 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+(Pagar)
+(Pagar con tarjeta)
+(Pagar en efectivo)
+(Pagar) <|-- (Pagar con tarjeta)
+(Pagar) <|-- (Pagar en efectivo)
+@enduml

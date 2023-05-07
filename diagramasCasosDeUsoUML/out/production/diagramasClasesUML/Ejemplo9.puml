@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+left to right direction
+
+actor "Usuario" as us
+us -- (Iniciar sesion)
+us -- (Recuperar contraseña)
+us -- (Modificar contraseña)
+us -- (Cerrar sesion)
+actor "Administrador" as ad
+ad -- (Registrar usuario)
+ad -- (Instalar programa)
+ad --|> us
+@enduml

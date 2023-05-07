@@ -1,0 +1,12 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+:Cliente: -right- (Reservar vuelo)
+:Cliente VIP: -right- (Elegir asientos)
+
+:Cliente VIP: -up-|> Cliente
+
+
+
+@enduml

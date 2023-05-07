@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+:Actor:
+
+newpage
+(Mostrar menú)
+
+newpage
+actor Cliente
+usecase "Mostrar menú"
+Cliente -right- "Mostrar menú"
+
+@enduml

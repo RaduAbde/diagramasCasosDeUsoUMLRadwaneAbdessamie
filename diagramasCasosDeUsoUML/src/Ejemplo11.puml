@@ -1,0 +1,21 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+usecase UC1 as  "Sacar dinero
+--
++ solicitud hecha"
+
+usecase UC2 as "Retener tarjeta"
+
+
+UC1 <-- UC2: <<Extend>>
+note on link
+    Descripcion
+    --
+        Condición:
+            {historio sospechosa}
+        Punto de extensión:
+            solicitud hecha
+end note
+
+@enduml

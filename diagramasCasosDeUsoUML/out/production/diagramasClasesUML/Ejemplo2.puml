@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+@startuml
+left to right direction
+actor "Cliente" as fc
+actor "Restaurante" as fc1
+rectangle  {
+  usecase "Mostrar Menu" as UC1
+  usecase "Pedir Comida" as UC2
+}
+usecase "Entregar comida"
+fc -- UC1
+fc -- UC2
+fc1 -- UC1
+fc1 -- "Entregar comida"
+@enduml

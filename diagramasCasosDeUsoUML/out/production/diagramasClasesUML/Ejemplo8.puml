@@ -1,0 +1,13 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+left to right direction
+actor "new Actor" as nA
+nA -- (Identificarse)
+nA -- (Pagar)
+nA -- (Elegir Mensajero)
+nA -- (Confirmar)
+(Identificarse) <.. (Registrarse) : <<extend>>
+(Pagar) <|-- (Pagar con tarjeta)
+(Pagar) <|-- (Pagar con transferencia)
+@enduml

@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+actor Ciudadano as cd
+actor "Ciudadano Extranjero" as cex
+
+cd -- (Registrar entrada)
+(Tomar Huellas) ..> (Registrar entrada) :  << extend >>
+cex --|> cd
+cex -- (Tomar Huellas)
+
+
+
+@enduml

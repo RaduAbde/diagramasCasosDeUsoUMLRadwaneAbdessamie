@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+left to right direction
+
+usecase "Confirmar pedido"
+usecase "Cancelar pedido"
+usecase "Devolver cambio"
+
+Cliente -- "Confirmar pedido"
+Cliente -- "Cancelar pedido"
+"Confirmar pedido" ..> "Devolver cambio" : <<Include>>
+"Cancelar pedido" ..> "Devolver cambio" : <<Include>>
+@enduml

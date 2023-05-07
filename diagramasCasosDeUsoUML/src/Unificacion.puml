@@ -1,0 +1,116 @@
+@startuml
+'https://plantuml.com/activity-diagram-beta
+
+:Actor:
+
+newpage
+(Mostrar menú)
+
+newpage
+actor Cliente
+usecase "Mostrar menú1"
+Cliente -right- "Mostrar menú1"
+
+newpage
+left to right direction
+actor "Cliente" as fc
+actor "Restaurante" as fc1
+rectangle  {
+  usecase "Mostrar Menu" as UC1
+  usecase "Pedir Comida" as UC2
+}
+usecase "Entregar comida"
+fc -- UC1
+fc -- UC2
+UC1 -- fc1
+"Entregar comida" -- fc1
+
+newpage
+left to right direction
+
+usecase "Confirmar pedido"
+usecase "Cancelar pedido"
+usecase "Devolver cambio"
+
+Cliente -- "Confirmar pedido"
+Cliente -- "Cancelar pedido"
+"Confirmar pedido" ..> "Devolver cambio" : <<Include>>
+"Cancelar pedido" ..> "Devolver cambio" : <<Include>>
+
+newpage
+left to right direction
+(Acceder)<..(Registrarse) :<<extend>>
+
+newpage
+(Pagar)
+(Pagar con tarjeta)
+(Pagar en efectivo)
+(Pagar) <|-- (Pagar con tarjeta)
+(Pagar) <|-- (Pagar en efectivo)
+
+newpage
+:Cliente: -right- (Reservar vuelo)
+:Cliente VIP: -right- (Elegir asientos)
+
+:Cliente VIP: -up-|> Cliente
+
+newpage
+left to right direction
+actor "Cliente" as cl
+cl -- (Meter dinero)
+cl -- (Pedir azucar)
+cl -- (Pedir Producto)
+cl -- (Cancelar)
+(Pedir Producto) ..> (Devolver dinero) : <<include>>
+(Cancelar) ..> (Devolver dinero) : <<include>>
+
+newpage
+left to right direction
+actor "new Actor" as nA
+nA -- (Identificarse)
+nA -- (Pagar)
+nA -- (Elegir Mensajero)
+nA -- (Confirmar)
+(Identificarse) <.. (Registrarse) : <<extend>>
+(Pagar) <|-- (Pagar con tarjeta)
+(Pagar) <|-- (Pagar con transferencia)
+
+newpage
+left to right direction
+actor "Usuario" as us
+actor "Administrador" as ad
+us -- (Iniciar sesion)
+us -- (Recuperar contraseña)
+us -- (Modificar contraseña)
+us -- (Cerrar sesion)
+ad -- (Registrar usuario)
+ad -- (Instalar programa)
+ad --left-|> us
+
+newpage
+actor Ciudadano as cd
+actor "Ciudadano Extranjero" as cex
+
+cd -right- (Registrar entrada)
+(Tomar Huellas) .up.> (Registrar entrada) :  << extend >>
+cex -up-|> cd
+cex -right- (Tomar Huellas)
+
+newpage
+usecase UC1 as  "Sacar dinero
+--
++ solicitud hecha"
+
+usecase UC2 as "Retener tarjeta"
+
+
+UC1 <-- UC2: <<Extend>>
+note on link
+    Descripcion
+    --
+        Condición:
+            {historio sospechosa}
+        Punto de extensión:
+            solicitud hecha
+end note
+@enduml
